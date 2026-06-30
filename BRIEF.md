@@ -1,7 +1,11 @@
 # BRIEF.md — WardTracker Dual Deployment Repair
 
 ## Status
-**BLOCKER: No VERCEL_TOKEN available in environment. Cannot configure Vercel project settings or trigger deployments via API.**
+**INCOMPLETE_GOAL: Vercel project "wardlist" production deployment cannot be fully fixed without VERCEL_TOKEN. Investigation complete, code fixes applied, PR #1 opened.**
+
+## Pull Request
+- **PR #1:** https://github.com/pranodan/wardtracker/pull/1
+- **Fork:** https://github.com/isaalia/wardtracker
 
 ## Problem Statement
 DUAL DEPLOY BROKEN: Vercel project "wardlist" latest prod deployment is unknown.
@@ -85,7 +89,19 @@ The `wardlist.vercel.app` site is serving a Vite/PWA application, while the code
 
 ## Blockers
 - **BLOCKER: No VERCEL_TOKEN** — Cannot interact with Vercel API to configure project settings, check deployment status, or trigger deployments. Need a Vercel access token with access to the "wardlist" project.
-- **BLOCKER: Pull-only GitHub access** — GitHub token (`isaalia`) has only pull access to `pranodan/wardtracker`. Cannot push code or configure webhooks.
+- **BLOCKER: Pull-only GitHub access** — GitHub token (`isaalia`) has only pull access to `pranodan/wardtracker`. Cannot push code or configure webhooks. Forked to `isaalia/wardtracker` as workaround.
+
+## Handoff
+HANDOFF: Investigation complete. Code fixes applied. PR #1 created. OLYMPUS needs a VERCEL_TOKEN to finish the deployment configuration. Next agent can pick up Phase 2 (Vercel configuration) once token is provided.
+
+## INCOMPLETE_GOAL
+**What's missing:** Vercel project "wardlist" production deployment could not be fully configured or verified.
+**Why:** No VERCEL_TOKEN available in environment. GitHub token has only pull access.
+**What was done:**
+1. Full investigation of GitHub deployments, Vercel URLs, and codebase
+2. Code fixes: ESLint, hardcoded secret, vercel.json
+3. Forked repo and opened PR #1 with all changes
+4. Documentation: BRIEF.md and session journal
 
 ## Fixes Applied (No Vercel Token Required)
 1. ✅ Created `vercel.json` with framework=nextjs, proper build command, and fra1 region
