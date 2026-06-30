@@ -203,7 +203,7 @@ export default function UnitPage() {
     };
 
     const handleConfirmRemove = async () => {
-        if (passwordInput === "Pranodan124") {
+        if (passwordInput === (process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "Pranodan124")) {
             try {
                 const newConsultants = dynamicConsultants.filter(c => !consultantMatches(c, removingConsultant || ""));
                 await setDoc(doc(db, "unit_settings", unitId.toString()), {
